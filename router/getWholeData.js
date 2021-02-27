@@ -61,21 +61,6 @@ module.exports = (Router) => {
 
 
 
-    
-    // get total ammount of price according to the number of minutes
-    .get('/calculatePrice', (req, res) => {
-        knex.select('*').from('priceAccordingToTime')
-        .then((data) => {
-            var totalAmmount = data[0].numberOfMinutes * data[0].price
-            console.log(totalAmmount+'Rs')
-            res.send(totalAmmount+'Rs')
-        })
-        .catch((err) => {
-            console.log(err)
-            res.send(err)
-        })
-    })
-
     // get total ammount of price according to the number of minutes by id
 
     .get('/calculatePrice/:id', (req, res) => {
